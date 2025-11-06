@@ -209,8 +209,8 @@ function updateScore(){
 
 function renderList(olId, arr, fmt){
   const ol = document.getElementById(olId);
-  if (!ol) return;                         // 보드가 없으면 조용히 스킵
-  const lis = ol.querySelectorAll('li');   // 보드의 <li>들 (예: 3개)
+  if (!ol) return;                         
+  const lis = ol.querySelectorAll('li');   
   for (let i = 0; i < lis.length; i++){
     lis[i].textContent = arr[i] ? fmt(arr[i]) : '--';
   }
