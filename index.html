@@ -3,18 +3,38 @@
   <head>
     <title>JavaScript Number Guessing Game</title>
     <script src="script.js" defer></script>
+    <style>
+      #msg {
+        white-space: pre-line;   
+        line-height: 1.4;        
+        font-weight: 500;        
+        margin-top: 10px;
+      }
+      .boards { display: flex; gap: 16px; flex-wrap: wrap; }
+      .board { flex: 1 1 300px; min-width: 280px; padding: 12px; border: 1px solid #ddd; border-radius: 8px; }
+      .cols { display: flex; gap: 16px; }
+      .cols > div { flex: 1 1 140px; }
+      .board h4 { margin: 6px 0 8px; }
+      .board h5 { margin: 6px 0; font-weight: 600; }
+    </style>
   </head>
   <body>
     <p id="date"></p>
+
+    <h3>Player Name</h3>
+    <input type="text" id="playerName" placeholder="Enter your name">
+    <button id="nameBtn">Enter</button>
 
     <h3>Level</h3>
     <input type="radio" name="level" id="e" value="3" checked><label for="e">Easy</label>
     <input type="radio" name="level" id="m" value="10"><label for="m">Medium</label>
     <input type="radio" name="level" id="h" value="100"><label for="h">Hard</label>
 
-    <button id="playBtn">Play</button>
+    <button id="playBtn">Play!</button>
+    <button id="nameChangeBtn" disabled>New Player</button>
+    <button id="endBtn">End Game</button>
 
-    <h3 id="msg">Select a Level</h3>
+    <h2 id="msg">Enter your Name</h2>
     <input type="text" id="guess">
     <button id="guessBtn" disabled>Guess</button>
     <button id="giveUp" disabled>Give Up</button>
@@ -22,12 +42,67 @@
     <h3>Stats</h3>
     <p id="wins">Total wins: 0</p>
     <p id="avgScore">Average Score: </p>
+    <p id="avgTime">Average Time: --</p>
 
-    <h3>Leaderboard</h3>
-    <ol>
-      <li name="leaderboard">100</li>
-      <li name="leaderboard">100</li>
-      <li name="leaderboard">100</li>
-    </ol>
+    <h3>Leaderboards by Level</h3>
+    <div class="boards">
+      <!-- Easy -->
+      <div class="board">
+        <h4>Easy (1–3)</h4>
+        <div class="cols">
+          <div>
+            <h5>Scores</h5>
+            <ol id="lb-3">
+              <li>--</li><li>--</li><li>--</li>
+            </ol>
+          </div>
+          <div>
+            <h5>Fastest</h5>
+            <ol id="ft-3">
+              <li>--</li><li>--</li><li>--</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <!-- Medium -->
+      <div class="board">
+        <h4>Medium (1–10)</h4>
+        <div class="cols">
+          <div>
+            <h5>Scores</h5>
+            <ol id="lb-10">
+              <li>--</li><li>--</li><li>--</li>
+            </ol>
+          </div>
+          <div>
+            <h5>Fastest</h5>
+            <ol id="ft-10">
+              <li>--</li><li>--</li><li>--</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hard -->
+      <div class="board">
+        <h4>Hard (1–100)</h4>
+        <div class="cols">
+          <div>
+            <h5>Scores</h5>
+            <ol id="lb-100">
+              <li>--</li><li>--</li><li>--</li>
+            </ol>
+          </div>
+          <div>
+            <h5>Fastest</h5>
+            <ol id="ft-100">
+              <li>--</li><li>--</li><li>--</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </body>
 </html>
